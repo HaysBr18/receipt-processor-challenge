@@ -150,7 +150,6 @@ func calculatePoints(receipt *Receipt) int {
 		points += 10
 	}
 
-	//return the calculated points
 	return points
 }
 
@@ -159,10 +158,10 @@ func main() {
 	//Implement a new HTTP request router r.
 	r := mux.NewRouter()
 
-	//Handle any new receipt (POST) request given as a JSON.
+	//Handle any new receipt request (POST) given as a JSON.
 	r.HandleFunc("/receipts/process", processReceiptsHandler).Methods("POST")
 
-	//Handle any new points (GET) request given a valid receipt id.
+	//Handle any new points request given a valid receipt id.
 	r.HandleFunc("/receipts/{id}/points", getPointsHandler).Methods("GET")
 
 	http.Handle("/", r)
